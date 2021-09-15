@@ -1,6 +1,6 @@
 package com.example.cursomc.resources;
 
-import com.example.cursomc.domain.Categoria;
+import com.example.cursomc.domain.Category;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,16 +13,16 @@ import java.util.List;
 public class CategoryController {
 
     @GetMapping
-    public List<Categoria> list(){
+    public List<Category> list(){
 
-        Categoria cat1 = new Categoria(1, "Informática");
-        Categoria cat2 = new Categoria(2, "Escritório");
+        Category cat1 = new Category(1, "Informática");
+        Category cat2 = new Category(2, "Escritório");
 
-        List<Categoria> categorias = new ArrayList<>();
+        List<Category> categories = new ArrayList<>();
 
-        categorias.add(cat1);
-        categorias.add(cat2);
+        categories.add(cat1);
+        categories.add(cat2);
 
-        return categorias;
+        return categories;
     }
 }

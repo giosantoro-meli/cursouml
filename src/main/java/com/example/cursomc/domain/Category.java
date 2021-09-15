@@ -1,19 +1,25 @@
 package com.example.cursomc.domain;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Objects;
 
-public class Categoria implements Serializable {
+@Entity
+public class Category implements Serializable {
     private static final long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer id;
     private String nome;
 
-    public Categoria() {
+    public Category() {
     }
 
-    public Categoria(Integer id, String nome) {
+    public Category(Integer id, String nome) {
         this.id = id;
         this.nome = nome;
     }
@@ -33,8 +39,8 @@ public class Categoria implements Serializable {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Categoria)) return false;
-        Categoria categoria = (Categoria) o;
+        if (!(o instanceof Category)) return false;
+        Category categoria = (Category) o;
         return id.equals(categoria.id);
     }
 
