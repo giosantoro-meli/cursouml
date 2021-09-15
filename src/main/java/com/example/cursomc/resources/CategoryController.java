@@ -1,9 +1,8 @@
 package com.example.cursomc.resources;
 
 import com.example.cursomc.domain.Category;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.example.cursomc.services.CategoryService;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +10,12 @@ import java.util.List;
 @RestController
 @RequestMapping(value="/categories")
 public class CategoryController {
+
+    private CategoryService service;
+
+    public CategoryController(CategoryService service) {
+        this.service = service;
+    }
 
     @GetMapping
     public List<Category> list(){
@@ -24,5 +29,10 @@ public class CategoryController {
         categories.add(cat2);
 
         return categories;
+    }
+
+    @GetMapping(value="/{id}")
+    public Category findById(@PathVariable Integer id){
+        return service.find(id);
     }
 }
