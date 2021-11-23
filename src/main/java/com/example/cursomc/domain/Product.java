@@ -65,11 +65,11 @@ public class Product implements Serializable {
         if (this == o) return true;
         if (!(o instanceof Product)) return false;
         Product product = (Product) o;
-        return id.equals(product.id) && nome.equals(product.nome) && preco.equals(product.preco);
+        return id.equals(product.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nome, preco);
+        return Objects.hash(id);
     }
 }
