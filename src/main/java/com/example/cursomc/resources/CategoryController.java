@@ -19,16 +19,7 @@ public class CategoryController {
 
     @GetMapping
     public List<Category> list(){
-
-        Category cat1 = new Category(1, "Informática");
-        Category cat2 = new Category(2, "Escritório");
-
-        List<Category> categories = new ArrayList<>();
-
-        categories.add(cat1);
-        categories.add(cat2);
-
-        return categories;
+        return service.findAll();
     }
 
     @GetMapping(value="/{id}")
